@@ -3,6 +3,8 @@ const { FOLDERS } = require(`${BASEDIR}/constants/folders.js`);
 const { MODE } = require(`${FOLDERS.constantsDir}/blend_mode.js`);
 const { NETWORK } = require(`${FOLDERS.constantsDir}/network.js`);
 
+const { layerConfigurations } = require("./layerConfigurations");
+
 const network = NETWORK.eth;
 
 const solanaMetadata = {
@@ -12,66 +14,10 @@ const solanaMetadata = {
   creators: [
     {
       address: "YOUR_WALLET_ADDRESS_HERE", // Add your owner wallet address here. Ex. 0x5cE5D823f4bD8Ec610868fBa65832B479152C7E1
-      share: 100,
-    },
-  ],
-};
-
-// If you have selected Solana then the collection starts from 0 automatically
-const layerConfigurations = [
-  {
-    growEditionSizeTo: 2,
-    layersOrder: [
-      { name: "Background" },
-      { name: "Eyeball" },
-      { name: "Eye color" },
-      { name: "Iris" },
-      { name: "Shine" },
-      { name: "Bottom lid" },
-      { name: "Top lid" },
-    ]
-  },
-];
-
-/* Example of configuration settings
-const layerConfigurations = [
-  {
-    growEditionSizeTo: 2,
-    maxRepeatedTraits: 1,
-    layersOrder: [
-      { name: "Background" },
-      { name: "Eyeball" },
-      { name: "Eye color", maxRepeatedTrait: 2 },
-      { name: "Iris" },
-      { name: "Shine" },
-      { name: "Bottom lid", maxRepeatedTrait: 3 },
-      { name: "Top lid" },
-    ],
-    layerItemsMaxRepeatedTraits: [
-      { name: "Background/Black", layerItemMaxRepeatedTrait: 4 },
-      { name: "Eyeball/Red", layerItemMaxRepeatedTrait: 5 }
-    ],
-    incompatibleTraits: {
-      "Eye color/Cyan": [
-        "Eyeball/Red",
-      ],
-      "Iris/Large": [
-        "Bottom lid/High",
-        "Top lid/High"
-      ],
-    },
-    dependentTraits: {
-      "Eye color/Cyan": [
-        "Eyeball/White",
-      ],
-      "Background/Blue": [
-        "Eyeball/Red",
-        "Top lid/low"
-      ],
+      share: 100
     }
-  },
-];
-*/
+  ]
+};
 
 const shuffleLayerConfigurations = false;
 
@@ -80,14 +26,14 @@ const debugLogs = false;
 const format = {
   width: 512,
   height: 512,
-  smoothing: false,
+  smoothing: false
 };
 
 const gif = {
   export: false,
   repeat: 0,
   quality: 100,
-  delay: 500,
+  delay: 500
 };
 
 const text = {
@@ -100,18 +46,18 @@ const text = {
   baseline: "top",
   weight: "regular",
   family: "Courier",
-  spacer: " => ",
+  spacer: " => "
 };
 
 const pixelFormat = {
-  ratio: 2 / 128,
+  ratio: 2 / 128
 };
 
 const background = {
   generate: true,
   brightness: "80%",
   static: false,
-  default: "#000000",
+  default: "#000000"
 };
 
 // These are additional items that will be added to each NFT. You can remove them or add new ones as well if needed.
@@ -129,7 +75,7 @@ const preview = {
   thumbPerRow: 5,
   thumbWidth: 50,
   imageRatio: format.height / format.width,
-  imageName: "preview.png",
+  imageName: "preview.png"
 };
 
 const preview_gif = {
@@ -138,7 +84,7 @@ const preview_gif = {
   repeat: 0,
   quality: 100,
   delay: 500,
-  imageName: "preview.gif",
+  imageName: "preview.gif"
 };
 
 module.exports = {
@@ -156,5 +102,5 @@ module.exports = {
   network,
   solanaMetadata,
   gif,
-  preview_gif,
+  preview_gif
 };
